@@ -20,7 +20,8 @@ def predict(image_path):
     prediction = model.predict(processed_img)
     return prediction
 
-st.title('Keras Model Deployment with Streamlit')
+st.title('Chest X-ray Covid Classifier')
+st.write("Made by - Deep Raut, Varun Kadu, Devanshu Bhagwatkar")
 st.write('Upload an image for prediction')
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
