@@ -3,7 +3,7 @@ from tensorflow.keras.models import load_model
 import numpy as np
 import cv2
 import tempfile
-model = load_model('imageclassifier.keras')
+model = load_model('pneumonia.keras')
 
 def preprocess_image(image_path):
     img = cv2.imread(image_path)
@@ -20,7 +20,7 @@ def predict(image_path):
     prediction = model.predict(processed_img)
     return prediction
 
-st.title('Chest X-ray Covid Classifier')
+st.title('Chest X-ray Pneumonia Classifier')
 st.write("Made by - Deep Raut, Varun Kadu, Devanshu Bhagwatkar")
 st.write('Upload an image for prediction')
 uploaded_file = st.file_uploader("Choose a file")
@@ -30,7 +30,7 @@ if uploaded_file is not None:
     st.image(temp_image.name, caption='Uploaded Image', use_column_width=True)
     prediction = predict(temp_image.name)
     if(prediction==0):
-        prediction = "Covid Positive"
+        prediction = "Pneumonia Positive"
     else:
-        prediction = "Covid Negative"
+        prediction = "Pneumonia Negative"
     st.write('Prediction:',prediction)
