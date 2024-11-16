@@ -30,7 +30,7 @@ if uploaded_file is not None:
     st.image(temp_image.name, caption='Uploaded Image', use_column_width=True)
     prediction = predict(temp_image.name)
     if(prediction==0):
-        prediction = "Pneumonia Positive"
-    else:
         prediction = "Pneumonia Negative"
+    else:
+        prediction = "Pneumonia Positive"
     st.write('Prediction:',prediction)
